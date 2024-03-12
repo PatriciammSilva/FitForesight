@@ -2,10 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-#import scikit-learn 
-
-from sklearn.cluster import KMeans
-from sklearn.datasets import make_blobs
+import sklearn 
+#import yellowbrick
 
 dados = pd.read_csv('/Users/patriciasilva/Desktop/Dados 1 - Experiência/dados1.csv')
    
@@ -66,7 +64,6 @@ print(outh.shape)
    # 185 valores outliers
  
    # gráficos da variável Size
-#sns.countplot(dados['size'])
 size1 = [9731, 21127, 28379, 16533, 17747, 63, 16025]
 bars = ('XXS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL')
 pos = np.arange(len(bars))
@@ -78,7 +75,21 @@ plt.pie(size1)
 print(plt.show()) 
 
    # kmeans com os valores outliers 
-data = pd.get_dummies(dados,columns=['size'])     
-data.head()
+   # criar dummys
+data = pd.get_dummies(dados,columns=['size'])  
+data = data.astype(int)
+print(data.head())
+   # criar modelo
 features = data.drop(['size_L','size_M','size_S','size_XL','size_XXL','size_XXS','size_XXXL'], axis=1)
-features.head()
+print(features.head())
+from sklearn.preprocessing import StandardScaler
+scale = StandardScaler()     
+features = scale.fit_transform(features)
+features_scaled = pd.DataFrame( features, columns=['weight','age','height'])
+print(features_scaled.head())
+from sklearn.cluster import KMeans
+from yellowbrick.cluster import KElbowVisualizer
+model = KMeans()
+visualizer = KElbowVisualizer(model,k=(1,10),timings=False)
+visualizer.fit(features_scaled)
+visualizer.show()
