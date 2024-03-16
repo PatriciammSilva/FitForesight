@@ -5,8 +5,8 @@ import seaborn as sns
 import sklearn 
 #import yellowbrick
 
-dados = pd.read_csv('/Users/patriciasilva/Desktop/Dados 1 - Experiência/dados1.csv')
-   
+
+   dados = pd.read_csv('/Users/patriciasilva/Desktop/Dados 1 - Experiência/dados1.csv')
    #cabeçalho da base de dados
 print(dados.head())
 
