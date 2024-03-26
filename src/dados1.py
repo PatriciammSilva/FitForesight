@@ -6,11 +6,10 @@ import sklearn
 #import yellowbrick
 
 
-   dados = pd.read_csv('/Users/patriciasilva/Desktop/Dados 1 - Experiência/dados1.csv')
+dados = pd.read_csv('/Users/patriciasilva/Desktop/Dados1')
    #cabeçalho da base de dados
 print(dados.head())
-
- # dimensões da base de dados
+   # dimensões da base de dados
 print(dados.shape)
 
  # substituir valores NA pela mediana da variável
@@ -93,3 +92,4 @@ model = KMeans()
 visualizer = KElbowVisualizer(model,k=(1,10),timings=False)
 visualizer.fit(features_scaled)
 visualizer.show()
+
