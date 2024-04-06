@@ -6,7 +6,7 @@ import sklearn
 #import yellowbrick
 
 
-dados = pd.read_csv('/Users/patriciasilva/Desktop/Dados1')
+dados = pd.read_csv('/Users/patriciasilva/Desktop/Dados1/dados1.csv')
    #cabeçalho da base de dados
 print(dados.head())
    # dimensões da base de dados
@@ -73,23 +73,55 @@ print(plt.show())
 plt.pie(size1)
 print(plt.show()) 
 
-   # kmeans com os valores outliers 
+   # kmeans  
    # criar dummys
-data = pd.get_dummies(dados,columns=['size'])  
-data = data.astype(int)
-print(data.head())
+#data = pd.get_dummies(dados,columns=['size'])  
+#data = data.astype(int)
+#print(data.head())
    # criar modelo
-features = data.drop(['size_L','size_M','size_S','size_XL','size_XXL','size_XXS','size_XXXL'], axis=1)
-print(features.head())
-from sklearn.preprocessing import StandardScaler
-scale = StandardScaler()     
-features = scale.fit_transform(features)
-features_scaled = pd.DataFrame( features, columns=['weight','age','height'])
-print(features_scaled.head())
-from sklearn.cluster import KMeans
-from yellowbrick.cluster import KElbowVisualizer
-model = KMeans()
-visualizer = KElbowVisualizer(model,k=(1,10),timings=False)
-visualizer.fit(features_scaled)
-visualizer.show()
+#features = data.drop(['size_L','size_M','size_S','size_XL','size_XXL','size_XXS','size_XXXL'], axis=1)
+#print(features.head())
+#from sklearn.preprocessing import StandardScaler
+#scale = StandardScaler()     
+#features = scale.fit_transform(features)
+#features_scaled = pd.DataFrame( features, columns=['weight','age','height'])
+#print(features_scaled.head())
+#from sklearn.cluster import KMeans
+#from yellowbrick.cluster import KElbowVisualizer
+#model = KMeans()
+#visualizer = KElbowVisualizer(model,k=(1,10),timings=False)
+#visualizer.fit(features_scaled)
+#visualizer.show()
 
+   # matriz de correlação
+#fig, ax = plt.subplots(figsize=(8,6))
+#sns.heatmap(dados.corr(), annot=True, fmt='.1g', cmap="viridis",);
+
+#from sklearn.datasets import load_iris
+#rom sklearn.preprocessing import StandardScaler
+#from sklearn.decomposition import PCA
+
+
+# Padronizar os recursos
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Criar um objeto PCA com 2 componentes
+pca = PCA(n_components=2)
+
+# Ajustar e transformar os dados
+X_pca = pca.fit_transform(X_scaled)
+
+# Plotar os resultados
+plt.figure(figsize=(8, 6))
+for i in range(len(iris.target_names)):
+    plt.scatter(X_pca[y == i, 0], X_pca[y == i, 1], label=iris.target_names[i])
+plt.xlabel('Componente Principal 1')
+plt.ylabel('Componente Principal 2')
+plt.title('PCA - Análise de Componentes Principais')
+plt.legend()
+plt.show()
+
+
+dados['size'] = dados['size'].map({'XXS': 1, 'S': 2, "M" : 3, "L" : \
+   4, "XL" : 5, "XXL" : 6, "XXXL" : 7})
