@@ -10,7 +10,7 @@ dados = pd.read_csv('/Users/patriciasilva/Desktop/Dados1/dados1.csv')
    #cabeçalho da base de dados
 print(dados.head())
    # dimensões da base de dados
-print(dados.shape)
+#print(dados.shape)
 
  # substituir valores NA pela mediana da variável
 print(dados.isna().sum())
