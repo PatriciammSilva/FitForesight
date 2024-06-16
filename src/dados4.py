@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import sklearn 
 import plotly.express as px
+from pandas.plotting import scatter_matrix
 
 ## ALTERAR FICHEIRO DE TXT PARA CSV
 with open('dados4.txt', 'r') as arquivo_txt:
@@ -63,8 +64,14 @@ plt.show()
    # gráfico de correlações com plotly
 fig = px.imshow(corr_matrix, text_auto=True, aspect="auto", color_continuous_scale='RdBu_r', title="Heatmap da Matriz de Correlação")
 fig.show()
-   # matriz de dispersão com seaborn
-sns.pairplot(dados)
-plt.suptitle('Matriz de Dispersão (Pairplot)', y=1.02)
+   # gráfico de correlações matplotlib
+fig, ax = plt.subplots(figsize=(10, 8))
+cax = ax.matshow(corr_matrix, cmap='coolwarm')
+fig.colorbar(cax)
+plt.title('Matriz de Correlação com Matplotlib', pad=20)
 plt.show()
+   # não cam pares de variáveis
+#sns.lmplot(x='', y='', data=dados)
+#plt.title('Gráfico de Dispersão com Linha de Regressão')
+#plt.show()
 
