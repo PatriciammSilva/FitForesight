@@ -83,14 +83,15 @@ plt.show()
 ## Análise de Componentes Principais
 from sklearn.decomposition import PCA
    # Aplicar PCA
-pca = PCA(n_components=2)
+pca = PCA(n_components=4)
 pca3 = pca.fit_transform(ndata3)
 print(pca3)
    # converter em DataFrame
-df_pca = pd.DataFrame(data=pca3, columns=['PC1', 'PC2'])
+datapca3 = pd.DataFrame(data=pca3, columns=['PC1', 'PC2', 'PC3', 'PC4'])
+print(datapca3)
    # gráfico
 plt.figure(figsize=(8, 6))
-sns.scatterplot(x='PC1', y='PC2', data=df_pca, palette='viridis', s=100, alpha=0.7)
+sns.scatterplot(x='PC1', y='PC2', data=datapca3, palette='viridis', s=100, alpha=0.7)
 plt.title('PCA dos Dados Sintéticos')
 plt.xlabel('Componente Principal 1')
 plt.ylabel('Componente Principal 2')
@@ -100,6 +101,8 @@ explained_variance = pca.explained_variance_ratio_
 print(explained_variance)
 print(f'Variância explicada pelo PC1: {explained_variance[0]:.2f}')
 print(f'Variância explicada pelo PC2: {explained_variance[1]:.2f}')
+print(f'Variância explicada pelo PC3: {explained_variance[2]:.2f}')
+print(f'Variância explicada pelo PC4: {explained_variance[3]:.2f}')
    # gráfico da variância explicada
 plt.figure(figsize=(8, 6))
 plt.bar(range(1, len(explained_variance) + 1), explained_variance, alpha=0.7, align='center')
