@@ -10,34 +10,32 @@ import plotly.express as px
 
 
 ## Importação Dataset
-data1 = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data1.csv')
-print(data1.head())
-print(data1.shape)
+data = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data1.csv')
 
 
 ## Estatísticas Descritivas
-pd.set_option('display.max_columns', None)
-print(data1.describe())
+# pd.set_option('display.max_columns', None)
+print(data.describe())
 
 
 ## Correlação 
-pd.set_option('display.max_columns', None)
-pd.set_option('display.max_rows', None)  
-R1 = data1.corr()
-print(R1)
+# pd.set_option('display.max_columns', None)
+# pd.set_option('display.max_rows', None)  
+R = data.corr()
+print(R)
    # gráfico 1 : correlações (estranho)
 plt.figure(figsize=(10, 8))
-sns.heatmap(R1, annot=True, cmap='coolwarm', fmt=".2f")
-plt.title('Heatmap da Matriz de Correlação')
+sns.heatmap(R, annot=True, cmap='coolwarm', fmt=".2f")
+plt.title('Matriz de Correlação')
 plt.show()
    # gráfico 2 : correlações (online)
-fig = px.imshow(R1, text_auto=True, aspect="auto", color_continuous_scale='RdBu_r', title="Heatmap da Matriz de Correlação")
+fig = px.imshow(R, text_auto=True, aspect="auto", color_continuous_scale='RdBu_r', title="Heatmap da Matriz de Correlação")
 fig.show()
-   # gráfico 3 : correlações (online)
+   # gráfico 3 : correlações
 fig, ax = plt.subplots(figsize=(10, 8))
-cax = ax.matshow(R1, cmap='coolwarm')
+cax = ax.matshow(R, cmap='coolwarm')
 fig.colorbar(cax)
-plt.title('Matriz de Correlação com Matplotlib', pad=20)
+plt.title('Matriz de Correlação', pad=20)
 plt.show()
 
 
@@ -46,16 +44,19 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
    # Normalizar data
 scaler = StandardScaler()
-ndata1 = scaler.fit_transform(data1)
+ndata = scaler.fit_transform(data)
    # Aplicar kmeans
 kmeans = KMeans(n_clusters=4)
-kmeans.fit(ndata1)
+kmeans.fit(ndata)
+import joblib
+joblib.dump(kmeans, 'kmeans_model.pkl')
+kmeans = joblib.load('kmeans_model.pkl')
    # previsao
-labels = kmeans.predict(ndata1)
+labels = kmeans.predict(ndata)
    # gráfico
-plt.scatter(ndata1[:, 0], ndata1[:, 1], c=labels, s=50, cmap='viridis')
-cent1 = kmeans.cluster_centers_
-plt.scatter(cent1[:, 0], cent1[:, 1], c='red', s=200, alpha=0.75, marker='X')
+plt.scatter(ndata[:, 0], ndata[:, 1], c=labels, s=50, cmap='viridis')
+cent = kmeans.cluster_centers_
+plt.scatter(cent[:, 0], cent[:, 1], c='red', s=200, alpha=0.75, marker='X')
 plt.show()
 
 
@@ -63,11 +64,11 @@ plt.show()
 from sklearn.decomposition import PCA
    # Aplicar PCA
 pca = PCA(n_components=4)
-pca1 = pca.fit_transform(ndata1)
-print(pca1)
+pca1 = pca.fit_transform(ndata)
+print(pca)
    # converter em DataFrame
-datapca1 = pd.DataFrame(data=pca1, columns=['PC1', 'PC2', 'PC3', 'PC4'])
-print(datapca1)
+datapca = pd.DataFrame(data=pca1, columns=['PC1', 'PC2', 'PC3', 'PC4'])
+print(datapca)
    # variância explicada por cada componente principal
 explained_variance = pca.explained_variance_ratio_
 print(explained_variance)
@@ -86,10 +87,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import FactorAnalysis
    # Normalizar data
 scaler = StandardScaler()
-ndata1 = scaler.fit_transform(data1)
+ndata = scaler.fit_transform(data)
    # Aplicar FA
 fa = FactorAnalysis(n_components=4, random_state=42)
-fact = fa.fit_transform(ndata1)
+fact = fa.fit_transform(ndata)
 print(fact)
 
 
@@ -98,14 +99,14 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.manifold import TSNE
    # Normalizar data
 scaler = StandardScaler()
-ndata1 = scaler.fit_transform(data1)
+ndata = scaler.fit_transform(data)
    # Aplicar t-SNE
-tsne1 = TSNE(n_components=2, random_state=42)
-d1tsne = tsne1.fit_transform(ndata1)
+tsne = TSNE(n_components=2, random_state=42)
+dtsne = tsne.fit_transform(ndata)
    # Gráfico
-d1 = pd.DataFrame(data=d1tsne, columns=['TSNE1', 'TSNE2'])
+d = pd.DataFrame(data=dtsne, columns=['TSNE1', 'TSNE2'])
 plt.figure(figsize=(10, 7))
-sns.scatterplot(x='TSNE1', y='TSNE2', data=d1, palette='Set1')
+sns.scatterplot(x='TSNE1', y='TSNE2', data=d, palette='Set1')
 plt.title('t-SNE - Componentes')
 plt.xlabel('TSNE1')
 plt.ylabel('TSNE2')
@@ -115,11 +116,11 @@ plt.show()
 from sklearn.decomposition import PCA
    # Aplicar PCA
 pca = PCA(n_components=2)
-pca1 = pca.fit_transform(ndata1)
-print(pca1)
+pca = pca.fit_transform(ndata)
+print(pca)
    # converter em DataFrame
-datapca1 = pd.DataFrame(data=pca1, columns=['PC1', 'PC2'])
-print(datapca1)
+datapca = pd.DataFrame(data=pca, columns=['PC1', 'PC2'])
+print(datapca)
    # variância explicada por cada componente principal
 explained_variance = pca.explained_variance_ratio_
 print(explained_variance)
@@ -138,14 +139,14 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.manifold import MDS
    # Normalizar data
 scaler = StandardScaler()
-ndata1 = scaler.fit_transform(data1)
+ndata = scaler.fit_transform(data)
    # Aplicar MDS
-mds1 = MDS(n_components=2, random_state=42)
-d1mds = mds1.fit_transform(ndata1)
+mds = MDS(n_components=2, random_state=42)
+dmds = mds.fit_transform(ndata)
    # Gráfico
-d1 = pd.DataFrame(data=d1mds, columns=['MDS1', 'MDS2'])
+d = pd.DataFrame(data=dmds, columns=['MDS1', 'MDS2'])
 plt.figure(figsize=(10, 7))
-sns.scatterplot(x='MDS1', y='MDS2', data=d1, palette='Set1')
+sns.scatterplot(x='MDS1', y='MDS2', data=d, palette='Set1')
 plt.title('MDS - Componentes')
 plt.xlabel('MDS1')
 plt.ylabel('MDS2')
@@ -157,12 +158,12 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import FastICA
    # Normalizar data
 scaler = StandardScaler()
-ndata1 = scaler.fit_transform(data1)
+ndata = scaler.fit_transform(data)
    # Aplicar ICA
-ica1 = FastICA(n_components=2, random_state=42)
-d1ica = ica1.fit_transform(ica1)
+ica = FastICA(n_components=2, random_state=42)
+dica = ica1.fit_transform(data)
    # Gráficos
-d1 = pd.DataFrame(data=d1ica, columns=['ICA1', 'ICA2'])
+d = pd.DataFrame(data=dica, columns=['ICA1', 'ICA2'])
 plt.figure(figsize=(10, 7))
 sns.scatterplot(x='ICA1', y='ICA2', hue='species', data=d1, palette='Set1')
 plt.title('ICA - Componentes Independentes')
