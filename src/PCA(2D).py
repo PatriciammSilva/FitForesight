@@ -12,19 +12,18 @@ from sklearn.decomposition import PCA
 df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data4.csv')
 
 ## Aplicar PCA
-pca = PCA(n_components=4)
+pca = PCA(n_components=2)
 dfpca = pca.fit_transform(df)
 print(dfpca)
 
-## Converter em DataFrame
-dfpca = pd.DataFrame(data=dfpca, columns=['PC1', 'PC2', 'PC3', 'PC4'])
+# onverter em DataFrame
+dfpca = pd.DataFrame(data=dfpca, columns=['PC1', 'PC2'])
 print(dfpca)
 
-## Variância explicada 
+   # variância explicada por cada componente principal
 explained_variance = pca.explained_variance_ratio_
 print(explained_variance)
-
-## Gráfico da variância explicada
+   # gráfico da variância explicada
 plt.figure(figsize=(8, 6))
 plt.bar(range(1, len(explained_variance) + 1), explained_variance, alpha=0.7, align='center')
 plt.step(range(1, len(explained_variance) + 1), np.cumsum(explained_variance), where='mid', color='red')
