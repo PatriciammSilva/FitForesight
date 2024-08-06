@@ -4,6 +4,7 @@
 ## Packages necessários
 import pandas as pd
 
+
 ## Importação Dataset
 df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data1.csv')
 
