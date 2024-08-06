@@ -9,7 +9,7 @@ from sklearn.decomposition import PCA
 
 
 ## Importação Dataset
-df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data1.csv')
+df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data4.csv')
 
 ## Aplicar PCA
 pca = PCA(n_components=4)

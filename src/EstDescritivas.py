@@ -6,7 +6,7 @@ import pandas as pd
 
 
 ## Importação Dataset
-df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data1.csv')
+df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data4.csv')
 
 ## Estatísticas Descritivas
 pd.set_option('display.max_columns', None)
