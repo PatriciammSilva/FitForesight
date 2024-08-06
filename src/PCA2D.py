@@ -16,7 +16,7 @@ pca = PCA(n_components=2)
 dfpca = pca.fit_transform(df)
 print(dfpca)
 
-# onverter em DataFrame
+## Converter em DataFrame
 dfpca = pd.DataFrame(data=dfpca, columns=['PC1', 'PC2'])
 print(dfpca)
 

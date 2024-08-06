@@ -19,7 +19,8 @@ dfnor = scaler.fit_transform(df)
 ## Aplicar MDS
 mds = MDS(n_components=2, random_state=42)
 dfmds = mds.fit_transform(dfnor)
-   # Gráfico
+   
+## Gráfico
 dfmds = pd.DataFrame(data=dfmds, columns=['MDS1', 'MDS2'])
 plt.figure(figsize=(10, 7))
 sns.scatterplot(x='MDS1', y='MDS2', data=dfmds, palette='Set1')
