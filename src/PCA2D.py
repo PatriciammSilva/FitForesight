@@ -20,10 +20,11 @@ print(dfpca)
 dfpca = pd.DataFrame(data=dfpca, columns=['PC1', 'PC2'])
 print(dfpca)
 
-   # variância explicada por cada componente principal
+## Variância explicada
 explained_variance = pca.explained_variance_ratio_
 print(explained_variance)
-   # gráfico da variância explicada
+
+## Gráfico da variância explicada
 plt.figure(figsize=(8, 6))
 plt.bar(range(1, len(explained_variance) + 1), explained_variance, alpha=0.7, align='center')
 plt.step(range(1, len(explained_variance) + 1), np.cumsum(explained_variance), where='mid', color='red')

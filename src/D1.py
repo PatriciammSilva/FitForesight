@@ -134,7 +134,7 @@ plt.title('Variância Explicada pelos Componentes Principais')
 plt.show()
 
 
-## Muldimentional scaling
+## Multidimentional scaling
 from sklearn.preprocessing import StandardScaler
 from sklearn.manifold import MDS
    # Normalizar data
