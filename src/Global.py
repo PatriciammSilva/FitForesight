@@ -215,6 +215,14 @@ plt.ylabel('ARMCIRCBCPS_FLEX')
 plt.title('Modelo 3')
 plt.legend()
 plt.show()
+   # Definir variáveis
+v1 = -2.207 + 0.059*df['ACR.RADL_LNTH'] + 0.139*df['SLEEVE.OUTSEAM_LNTH'] + 0.104*df['WAIST_NAT_LNTH'] + 0.077*df['WST_NAT_FRONT']
+v2 = 49.819 + 0.477*df['INTRSCY_DIST'] + 0.737*df['SCYE_DEPTH'] 
+v3 = -54.527 + 0.382*df['CHEST_CIRC']
+   # Criar dataset
+data = {'V1': v1, 'V2': v2,'V3': v3}
+df1 = pd.DataFrame(data)
+print(df1)
 
 
 ## Modelos R > 0.65
@@ -258,6 +266,13 @@ plt.legend()
 plt.show()
   # Modelo 3
    # variável WstNatFront
+   # Definir variáveis
+v1 = -18.741 - 0.058*df['ACR.RADL_LNTH'] + 0.068*df['CHEST_CIRC'] + 0.156*df['SLEEVE.OUTSEAM_LNTH'] + 0.117*df['WST_NAT_FRONT']
+v2 = 53.338 + 0.498*df['ARMCIRCBCPS_FLEX'] + 0.227*df['INTRSCY_DIST'] + 0.420*df['SCYE_DEPTH']
+   # Criar dataset
+data = {'V1': v1, 'V2': v2,'V3': df['WST_NAT_FRONT']}
+df2 = pd.DataFrame(data)
+print(df2) 
    
    
 ## Modelos R > 0.70
@@ -318,6 +333,13 @@ plt.ylabel('WAIST_NAT_LNTH')
 plt.title('Modelo 3')
 plt.legend()
 plt.show()
-
+   # Definir variáveis
+v1 = -11.997 + 0.011*df['ACR.RADL_LNTH'] + 0.079*df['CHEST_CIRC'] + 0.166*df['SLEEVE.OUTSEAM_LNTH'] 
+v2 = 53.338 + 0.498*df['ARMCIRCBCPS_FLEX'] + 0.227*df['INTRSCY_DIST'] + 0.420*df['SCYE_DEPTH'] 
+v3 = 68.330 + 0.976*df['WST_NAT_FRONT']
+   # Criar dataset
+data = {'V1': v1, 'V2': v2,'V3': v3}
+df3 = pd.DataFrame(data)
+print(df3)
 
 
