@@ -57,3 +57,12 @@ plt.show()
 
 ## Modelo 3
    # variável WstNatFront
+
+
+v1 = -18.741 - 0.058*df['ACR.RADL_LNTH'] + 0.068*df['CHEST_CIRC'] + 0.156*df['SLEEVE.OUTSEAM_LNTH'] + 0.117*df['WST_NAT_FRONT']
+v2 = 53.338 + 0.498*df['ARMCIRCBCPS_FLEX'] + 0.227*df['INTRSCY_DIST'] + 0.420*df['SCYE_DEPTH']
+
+
+data = {'V1': v1, 'V2': v2,'V3': df['WST_NAT_FRONT']}
+df2 = pd.DataFrame(data)
+print(df2)

@@ -75,4 +75,11 @@ plt.title('Modelo 3')
 plt.legend()
 plt.show()
 
+v1 = -2.207 + 0.059*df['ACR.RADL_LNTH'] + 0.139*df['SLEEVE.OUTSEAM_LNTH'] + 0.104*df['WAIST_NAT_LNTH'] + 0.077*df['WST_NAT_FRONT']
+v2 = 49.819 + 0.477*df['INTRSCY_DIST'] + 0.737*df['SCYE_DEPTH'] 
+v3 = -54.527 + 0.382*df['CHEST_CIRC']
+
+data = {'V1': v1, 'V2': v2,'V3': v3}
+df1 = pd.DataFrame(data)
+print(df1)
 
