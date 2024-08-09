@@ -86,4 +86,4 @@ v3 = -54.527 + 0.382*df['CHEST_CIRC']
 data = {'V1': v1, 'V2': v2,'V3': v3}
 df1 = pd.DataFrame(data)
 print(df1)
-
+df1.to_csv('df1.csv', index=False)

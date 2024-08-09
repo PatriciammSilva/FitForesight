@@ -86,3 +86,4 @@ v3 = 68.330 + 0.976*df['WST_NAT_FRONT']
 data = {'V1': v1, 'V2': v2,'V3': v3}
 df3 = pd.DataFrame(data)
 print(df3)
+df3.to_csv('df3.csv', index=False)

@@ -68,3 +68,4 @@ v2 = 53.338 + 0.498*df['ARMCIRCBCPS_FLEX'] + 0.227*df['INTRSCY_DIST'] + 0.420*df
 data = {'V1': v1, 'V2': v2,'V3': df['WST_NAT_FRONT']}
 df2 = pd.DataFrame(data)
 print(df2)
+df2.to_csv('df2.csv', index=False)
