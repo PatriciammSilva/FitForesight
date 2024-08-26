@@ -343,3 +343,49 @@ df3 = pd.DataFrame(data)
 print(df3)
 
 
+## Previsões R > 0.60
+   # Recuperar modelo e importar dataframe
+kmeans = joblib.load('modkmeans.pkl')
+df1 = pd.read_csv('df1.csv')
+   # Prever os clusters para os dados
+y_kmeans = kmeans.predict(df1)
+   # Visualizar os resultados
+plt.scatter(X[:, 0], X[:, 1], c=y_kmeans, s=50, cmap='viridis')
+centers = kmeans.cluster_centers_
+plt.scatter(centers[:, 0], centers[:, 1], c='red', s=200, alpha=0.75)
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.title('Clusters Identificados pelo K-Means')
+plt.show()
+
+
+## Previsões R > 0.65
+   # Recuperar modelo e importar dataframe
+kmeans = joblib.load('modkmeans.pkl')
+df2 = pd.read_csv('df2.csv')
+   # Prever os clusters para os dados
+y_kmeans = kmeans.predict(df2)
+   # Visualizar os resultados
+plt.scatter(X[:, 0], X[:, 1], c=y_kmeans, s=50, cmap='viridis')
+centers = kmeans.cluster_centers_
+plt.scatter(centers[:, 0], centers[:, 1], c='red', s=200, alpha=0.75)
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.title('Clusters Identificados pelo K-Means')
+plt.show()
+
+
+## Previsões R > 0.70
+   # Recuperar modelo e importar dataframe
+kmeans = joblib.load('modkmeans.pkl')
+df3 = pd.read_csv('df3.csv')
+   # Prever os clusters para os dados
+y_kmeans = kmeans.predict(df3)
+   # Visualizar os resultados
+plt.scatter(X[:, 0], X[:, 1], c=y_kmeans, s=50, cmap='viridis')
+centers = kmeans.cluster_centers_
+plt.scatter(centers[:, 0], centers[:, 1], c='red', s=200, alpha=0.75)
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.title('Clusters Identificados pelo K-Means')
+plt.show()
