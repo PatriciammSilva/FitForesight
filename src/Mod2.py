@@ -1,4 +1,4 @@
-## Modelos 1 - 0.60
+## Mod 2 - 0.65
    # alterar o número do dataset no comando de importação
    
 ## Packages necessários
@@ -92,7 +92,7 @@ print(v7)
 
 ## Variable 8 : WAIST_NAT_LNTH
    # Selecionar variáveis 
-X8 = df[['NECK_CIRC.BASE', 'WRIST_CIRC.STYLION']]
+X8 = df[['WST_NAT_FRONT']]
 y8 = df['WAIST_NAT_LNTH']
 X8 = sm.add_constant(X8)
    # Ajustar o modelo de regressão linear múltipla
@@ -103,8 +103,9 @@ v8 = mod8.predict(X8)
 print(v8)
 
 
+
 ## Criar dataset
-data = {'V1': v1, 'V2': df['ARMCIRCBCPS_FLEX'],'V3': v3, 'V4': v4, 'V5': df['NECK_CIRC.BASE'], 'V6': v6, 'V7': v7, 'V8': v8,'V9': v9, 'V10': df['WRIST_CIRC.STYLION'],}
-df1 = pd.DataFrame(data)
-print(df1)
-df1.to_csv('df1.csv', index=False)
+data = {'V1': v1, 'V2': v2,'V3': v3, 'V4': v4, 'V5': df['NECK_CIRC.BASE'], 'V6': v6, 'V7': v7, 'V8': v8,'V9': df['WST_NAT_FRONT'], 'V10': df['WRIST_CIRC.STYLION']}
+df2 = pd.DataFrame(data)
+print(df2)
+df2.to_csv('df2.csv', index=False)
