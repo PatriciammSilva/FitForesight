@@ -25,6 +25,8 @@ kmeans = joblib.load('modkmeans.pkl')
 labels = kmeans.predict(df1nor)
 np.set_printoptions(threshold=np.inf)
 print(labels)
+cluster_counts = pd.Series(labels).value_counts()
+print(cluster_counts)
 
 ## Gráfico
 plt.scatter(df1nor[:, 0], df1nor[:, 1], c=labels, s=50, cmap='viridis')

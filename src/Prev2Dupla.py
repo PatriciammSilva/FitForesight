@@ -24,6 +24,8 @@ kmeans = joblib.load('modkmeans.pkl')
 labels = kmeans.predict(df2duplanor)
 np.set_printoptions(threshold=np.inf)
 print(labels)
+cluster_counts = pd.Series(labels).value_counts()
+print(cluster_counts)
 
 ## Gráfico
 plt.scatter(df2duplanor[:, 0], df2duplanor[:, 1], c=labels, s=50, cmap='viridis')
