@@ -9,13 +9,13 @@ from scipy.spatial.distance import cdist
 
 ## Importação Dataset
 df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data4.csv')
-df2d = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/df2d.csv')
+df2dupla = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/df2dupla.csv')
 
 
 ## Distância euclidianas
 np.set_printoptions(threshold=np.inf)
-if df.shape == df2d.shape:
-    distances = np.linalg.norm(df.values - df2d.values, axis=1)
+if df.shape == df2dupla.shape:
+    distances = np.linalg.norm(df.values - df2dupla.values, axis=1)
     print("Distâncias Euclidianas entre pontos correspondentes:")
     print(distances)
 else:
