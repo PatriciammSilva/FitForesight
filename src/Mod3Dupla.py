@@ -53,7 +53,7 @@ print(v4)
 
 ## Variable 6 : SCYE_DEPTH
    # Selecionar variáveis 
-X6 = df[['ARMCIRCBCPS_FLEX', 'WAIST_NAT_LNTH', 'WRIST_CIRC.STYLION']]
+X6 = df[['NECK_CIRC.BASE', 'WRIST_CIRC.STYLION']]
 y6 = df['SCYE_DEPTH']
 X6 = sm.add_constant(X6)
    # Ajustar o modelo de regressão linear múltipla
@@ -77,10 +77,22 @@ v7 = mod7.predict(X7)
 print(v7)
 
 
+## Variable 8 : WAIST_NAT_LNTH
+   # Selecionar variáveis 
+X8 = v6
+y8 = df['WST_NAT_FRONT']
+X8 = sm.add_constant(X8)
+   # Ajustar o modelo de regressão linear múltipla
+mod8 = sm.OLS(y8, X8).fit()
+print(mod8.summary())
+   # Fazer previsões
+v8 = mod8.predict(X8)
+print(v8)
+
 
 ## Variable 9 : WST_NAT_FRONT
    # Selecionar variáveis 
-X9 = df[['WAIST_NAT_LNTH']]
+X9 = v8
 y9 = df['WST_NAT_FRONT']
 X9 = sm.add_constant(X9)
    # Ajustar o modelo de regressão linear múltipla
@@ -93,7 +105,7 @@ print(v9)
 
 
 ## Criar dataset
-data = {'V1': v1, 'V2': v2,'V3': v3, 'V4': v4, 'V5': df['NECK_CIRC.BASE'], 'V6': v6, 'V7': v7, 'V8': df['WAIST_NAT_LNTH'],'V9': v9, 'V10': df['WRIST_CIRC.STYLION']}
-df3 = pd.DataFrame(data)
-print(df3)
-df3.to_csv('df3.csv', index=False)
+data = {'V1': v1, 'V2': df['ARMCIRCBCPS_FLEX'],'V3': v3, 'V4': v4, 'V5': df['NECK_CIRC.BASE'], 'V6': v6, 'V7': v7, 'V8': v8,'V9': v9, 'V10': df['WRIST_CIRC.STYLION']}
+df3dupla = pd.DataFrame(data)
+print(df3dupla)
+df3dupla.to_csv('df3dupla.csv', index=False)
