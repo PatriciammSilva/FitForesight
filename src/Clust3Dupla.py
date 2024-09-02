@@ -1,4 +1,4 @@
-## Previsões Mod3 - 0.70
+## Cluster - 0.70
    # alterar o número do dataset no comando de importação
 
 
@@ -13,22 +13,41 @@ import joblib
 
 ## Recuperar modelo e importar dataframe
 kmeans = joblib.load('modkmeans.pkl')
+df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data4.csv')
 df3 = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/df3.csv')
+
 
 ## Normalizar dataset
 scaler = StandardScaler()
+dfnor = scaler.fit_transform(df)
 df3nor = scaler.fit_transform(df3)
+
+
+## Cluster treinado
+labels = kmeans.predict(dfnor)
+print(labels)
+
 
 ## Previsão
 kmeans = joblib.load('modkmeans.pkl')
-labels = kmeans.predict(df3nor)
+labels3 = kmeans.predict(df3nor)
 np.set_printoptions(threshold=np.inf)
-print(labels)
-cluster_counts = pd.Series(labels).value_counts()
+print(labels3)
+cluster_counts = pd.Series(labels3).value_counts()
 print(cluster_counts)
 
-## Gráfico
-plt.scatter(df3nor[:, 0], df3nor[:, 1], c=labels, s=50, cmap='viridis')
-cent = kmeans.cluster_centers_
-plt.scatter(cent[:, 0], cent[:, 1], c='red', s=200, alpha=0.75, marker='X')
-plt.show()
+
+## Verificação
+verif = labels == labels3
+print(verif)  
+acertos_counts = pd.Series(verif).value_counts()
+print(acertos_counts)
+
+
+## Percentagem de acertos / erros
+acerto = 3076/3982
+print(acerto)
+   # 77.2 %
+erro = 906/3982
+print(erro)
+   # 22.8 %

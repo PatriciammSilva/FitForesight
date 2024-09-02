@@ -45,9 +45,9 @@ print(acertos_counts)
 
 
 ## Percentagem de acertos / erros
-acerto = 3076/3982
+acerto = 3061/3982
 print(acerto)
-   # 77.2 %
-erro = 906/3982
+   # 76.9 %
+erro = 921/3982
 print(erro)
-   # 22.8 %
+   # 23.1 %

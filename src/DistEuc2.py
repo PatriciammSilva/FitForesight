@@ -1,5 +1,6 @@
 ## Distancia Euclideana - 0.65
-
+   # alterar o número do dataset no comando de importação
+   
 
 ## Packages necessários
 import numpy as np

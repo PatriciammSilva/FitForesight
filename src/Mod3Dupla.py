@@ -1,4 +1,4 @@
-## Mod 3 - 0.70
+## Mod 3 Dupla - 0.70
    # alterar o número do dataset no comando de importação
    
 ## Packages necessários
@@ -25,22 +25,9 @@ v1 = mod1.predict(X1)
 print(v1)
 
 
-## Variable 2 : ARMCIRCBCPS_FLEX
-   # Selecionar variáveis 
-X2 = df[['NECK_CIRC.BASE', 'WRIST_CIRC.STYLION']]
-y2 = df['ARMCIRCBCPS_FLEX']
-X2 = sm.add_constant(X2)
-   # Ajustar o modelo de regressão linear múltipla
-mod2 = sm.OLS(y2, X2).fit()
-print(mod2.summary())
-   # Fazer previsões
-v2 = mod2.predict(X2)
-print(v2)
-
-
 ## Variable 3 : CHEST_CIRC
    # Selecionar variáveis 
-X3 = df[['NECK_CIRC.BASE', 'WRIST_CIRC.STYLION']]
+X3 = df[['ARMCIRCBCPS_FLEX', 'NECK_CIRC.BASE', 'WRIST_CIRC.STYLION']]
 y3 = df['CHEST_CIRC']
 X3 = sm.add_constant(X3)
    # Ajustar o modelo de regressão linear múltipla
@@ -53,7 +40,7 @@ print(v3)
 
 ## Variable 4 : INTRSCY_DIST
    # Selecionar variáveis 
-X4 = df[['NECK_CIRC.BASE', 'WRIST_CIRC.STYLION']]
+X4 = df[['ARMCIRCBCPS_FLEX', 'NECK_CIRC.BASE', 'WRIST_CIRC.STYLION']]
 y4 = df['INTRSCY_DIST']
 X4 = sm.add_constant(X4)
    # Ajustar o modelo de regressão linear múltipla
@@ -66,7 +53,7 @@ print(v4)
 
 ## Variable 6 : SCYE_DEPTH
    # Selecionar variáveis 
-X6 = df[['NECK_CIRC.BASE', 'WAIST_NAT_LNTH', 'WRIST_CIRC.STYLION']]
+X6 = df[['ARMCIRCBCPS_FLEX', 'WAIST_NAT_LNTH', 'WRIST_CIRC.STYLION']]
 y6 = df['SCYE_DEPTH']
 X6 = sm.add_constant(X6)
    # Ajustar o modelo de regressão linear múltipla
