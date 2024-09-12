@@ -1,5 +1,4 @@
 ## Distancia Euclideana - 0.60
-   # alterar o número do dataset no comando de importação
    
 
 ## Packages necessários

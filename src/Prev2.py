@@ -1,5 +1,4 @@
 ## Previsões Mod2 - 0.65
-   # alterar o número do dataset no comando de importação
 
 
 ## Packages necessários

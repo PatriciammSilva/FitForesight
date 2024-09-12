@@ -1,5 +1,5 @@
 ## Correlação 
-   # alterar o número do dataset no comando de importação
+
 
 ## Packages necessários
 import pandas as pd
