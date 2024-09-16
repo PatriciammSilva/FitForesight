@@ -8,7 +8,7 @@ from sklearn.decomposition import FactorAnalysis
 
 
 ## Importação Dataset
-df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets4/data4.csv')
+df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets3/data3.csv')
 
 ## Normalizar dataset
 scaler = StandardScaler()

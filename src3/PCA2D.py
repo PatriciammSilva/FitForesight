@@ -9,18 +9,18 @@ from sklearn.decomposition import PCA
 
 
 ## Importação Dataset
-df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets4/data4.csv')
+df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets3/data3.csv')
 
 ## Aplicar PCA
-pca = PCA(n_components=4)
+pca = PCA(n_components=2)
 dfpca = pca.fit_transform(df)
 print(dfpca)
 
 ## Converter em DataFrame
-dfpca = pd.DataFrame(data=dfpca, columns=['PC1', 'PC2', 'PC3', 'PC4'])
+dfpca = pd.DataFrame(data=dfpca, columns=['PC1', 'PC2'])
 print(dfpca)
 
-## Variância explicada 
+## Variância explicada
 explained_variance = pca.explained_variance_ratio_
 print(explained_variance)
 

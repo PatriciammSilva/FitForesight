@@ -7,11 +7,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 from sklearn.manifold import TSNE
-from sklearn.cluster import KMeans
 
 
 ## Importação Dataset
-df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets4/data4.csv')
+df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets3/data3.csv')
 
 ## Normalizar dataset
 scaler = StandardScaler()
@@ -29,12 +28,3 @@ plt.title('t-SNE - Componentes')
 plt.xlabel('TSNE1')
 plt.ylabel('TSNE2')
 plt.show()
-
-
-## Normalizar dataset
-scaler = StandardScaler()
-dfnor = scaler.fit_transform(dftsne)
-
-## Aplicar kmeans
-kmeans = KMeans(n_clusters=4)
-kmeans.fit(dfnor)
