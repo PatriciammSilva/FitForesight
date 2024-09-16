@@ -10,7 +10,7 @@ import joblib
 
 
 ## Importação Dataset
-df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data4.csv')
+df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets4/data4.csv')
 
 ## Normalizar dataset
 scaler = StandardScaler()
@@ -19,10 +19,10 @@ dfnor = scaler.fit_transform(df)
 ## Aplicar kmeans
 kmeans = KMeans(n_clusters=4)
 kmeans.fit(dfnor)
-joblib.dump(kmeans, 'modkmeans.pkl')
+joblib.dump(kmeans, 'modkmeans4.pkl')
 
 ## Previsão
-kmeans = joblib.load('modkmeans.pkl')
+kmeans = joblib.load('modkmeans4.pkl')
 labels = kmeans.predict(dfnor)
 print(labels)
 
