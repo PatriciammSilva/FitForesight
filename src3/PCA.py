@@ -12,12 +12,12 @@ from sklearn.decomposition import PCA
 df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets3/data3.csv')
 
 ## Aplicar PCA
-pca = PCA(n_components=4)
+pca = PCA(n_components=3)
 dfpca = pca.fit_transform(df)
 print(dfpca)
 
 ## Converter em DataFrame
-dfpca = pd.DataFrame(data=dfpca, columns=['PC1', 'PC2', 'PC3', 'PC4'])
+dfpca = pd.DataFrame(data=dfpca, columns=['PC1', 'PC2', 'PC3'])
 print(dfpca)
 
 ## Variância explicada 
