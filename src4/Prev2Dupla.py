@@ -11,15 +11,15 @@ import joblib
 
 
 ## Recuperar modelo e importar dataframe
-kmeans = joblib.load('modkmeans.pkl')
-df2dupla = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/df2dupla.csv')
+kmeans = joblib.load('modkmeans4.pkl')
+df2dupla = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets4/df2dupla.csv')
 
 ## Normalizar dataset
 scaler = StandardScaler()
 df2duplanor = scaler.fit_transform(df2dupla)
 
 ## Previsão
-kmeans = joblib.load('modkmeans.pkl')
+kmeans = joblib.load('modkmeans4.pkl')
 labels = kmeans.predict(df2duplanor)
 np.set_printoptions(threshold=np.inf)
 print(labels)
