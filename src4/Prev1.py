@@ -20,7 +20,6 @@ df1nor = scaler.fit_transform(df1)
 
 
 ## Previsão
-kmeans = joblib.load('modkmeans4.pkl')
 labels = kmeans.predict(df1nor)
 print(labels)
 np.set_printoptions(threshold=np.inf)

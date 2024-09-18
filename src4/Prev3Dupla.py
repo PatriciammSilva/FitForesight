@@ -19,7 +19,6 @@ scaler = StandardScaler()
 df3duplanor = scaler.fit_transform(df3dupla)
 
 ## Previsão
-kmeans = joblib.load('modkmeans4.pkl')
 labels = kmeans.predict(df3duplanor)
 np.set_printoptions(threshold=np.inf)
 print(labels)

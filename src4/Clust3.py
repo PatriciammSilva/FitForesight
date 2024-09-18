@@ -11,9 +11,9 @@ import joblib
 
 
 ## Recuperar modelo e importar dataframe
-kmeans = joblib.load('modkmeans.pkl')
-df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data4.csv')
-df3 = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/df3.csv')
+kmeans = joblib.load('modkmeans4.pkl')
+df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets4/data4.csv')
+df3 = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets4/df3.csv')
 
 
 ## Normalizar dataset
@@ -28,7 +28,6 @@ print(labels)
 
 
 ## Previsão
-kmeans = joblib.load('modkmeans.pkl')
 labels3 = kmeans.predict(df3nor)
 np.set_printoptions(threshold=np.inf)
 print(labels3)

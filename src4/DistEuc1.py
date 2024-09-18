@@ -8,8 +8,8 @@ from scipy.spatial.distance import cdist
 
 
 ## Importação Dataset
-df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/data4.csv')
-df1 = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets/df1.csv')
+df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets4/data4.csv')
+df1 = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets4/df1.csv')
 
 
 ## Distância euclidianas

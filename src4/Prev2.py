@@ -19,7 +19,6 @@ scaler = StandardScaler()
 df2nor = scaler.fit_transform(df2)
 
 ## Previsão
-kmeans = joblib.load('modkmeans4.pkl')
 labels = kmeans.predict(df2nor)
 np.set_printoptions(threshold=np.inf)
 print(labels)
