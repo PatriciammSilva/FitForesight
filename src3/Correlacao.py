@@ -62,4 +62,4 @@ cor23 = R.iloc[:, 22].sum()-1
 cor24 = R.iloc[:, 23].sum()-1
 cor25 = R.iloc[:, 24].sum()-1
 print(cor1,cor2,cor3,cor4,cor5,cor6,cor7,cor8,cor9,cor10,cor11,cor12,cor13,cor14,cor15,cor16,cor17,cor18,cor19,cor20,cor21,cor22,cor23,cor24,cor25)
-   # escolher as variáveis 7, 9,16
+   # escolher as variáveis 7, 9, 16
