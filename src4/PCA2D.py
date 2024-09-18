@@ -6,6 +6,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
 
 
 ## Importação Dataset
@@ -31,4 +33,22 @@ plt.step(range(1, len(explained_variance) + 1), np.cumsum(explained_variance), w
 plt.xlabel('Componente Principal')
 plt.ylabel('Proporção de Variância Explicada')
 plt.title('Variância Explicada pelos Componentes Principais')
+plt.show()
+
+## Normalizar dataset
+scaler = StandardScaler()
+dfnor = scaler.fit_transform(dfpca)
+
+## Aplicar kmeans
+kmeans = KMeans(n_clusters=4)
+kmeans.fit(dfnor)
+
+## Previsão
+labels = kmeans.predict(dfnor)
+print(labels)
+
+## Gráfico
+plt.scatter(dfnor[:, 0], dfnor[:, 1], c=labels, s=50, cmap='viridis')
+cent = kmeans.cluster_centers_
+plt.scatter(cent[:, 0], cent[:, 1], c='red', s=200, alpha=0.75, marker='X')
 plt.show()
