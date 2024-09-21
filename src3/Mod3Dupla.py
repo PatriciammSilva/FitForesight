@@ -1,4 +1,4 @@
-## Mod 3 - 0.70
+## Mod 3 Dupla - 0.70
 
    
 ## Packages necessários
@@ -14,7 +14,7 @@ df = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets3/data3
 
 ## Variable 1 : ACR.RADL_LNTH
    # Selecionar variáveis 
-X1 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X1 = df[['SCYE_CIRC_OVER_ACROMION']]
 y1 = df['ACR.RADL_LNTH']
 X1 = sm.add_constant(X1)
    # Ajustar o modelo de regressão linear múltipla
@@ -27,7 +27,7 @@ print(v1)
 
 ## Variable 2 : ARM_CIRC.AXILLARY
    # Selecionar variáveis 
-X2 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X2 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y2 = df['ARM_CIRC.AXILLARY']
 X2 = sm.add_constant(X2)
    # Ajustar o modelo de regressão linear múltipla
@@ -40,7 +40,7 @@ print(v2)
 
 ## Variable 3 : BIACROMIAL_BRTH  
    # Selecionar variáveis 
-X3 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X3 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y3 = df['BIACROMIAL_BRTH']
 X3 = sm.add_constant(X3)
    # Ajustar o modelo de regressão linear múltipla
@@ -53,7 +53,7 @@ print(v3)
 
 ## Variable 4 : ARMCIRCBCPS_FLEX  
    # Selecionar variáveis 
-X4 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X4 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y4 = df['ARMCIRCBCPS_FLEX']
 X4 = sm.add_constant(X4)
    # Ajustar o modelo de regressão linear múltipla
@@ -66,7 +66,7 @@ print(v4)
 
 ## Variable 5 : CHEST_BRTH   
    # Selecionar variáveis 
-X5 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X5 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y5 = df['CHEST_BRTH']
 X5 = sm.add_constant(X5)
    # Ajustar o modelo de regressão linear múltipla
@@ -79,7 +79,7 @@ print(v5)
 
 ## Variable 6 : CHEST_CIRC  
    # Selecionar variáveis 
-X6 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X6 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y6 = df['CHEST_CIRC']
 X6 = sm.add_constant(X6)
    # Ajustar o modelo de regressão linear múltipla
@@ -90,22 +90,9 @@ v6 = mod6.predict(X6)
 print(v6)
 
 
-## Variable 7 : CHEST_CIRC_AT_SCYE   
-   # Selecionar variáveis 
-X7 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
-y7 = df['CHEST_CIRC_AT_SCYE']
-X7 = sm.add_constant(X7)
-   # Ajustar o modelo de regressão linear múltipla
-mod7 = sm.OLS(y7, X7).fit()
-print(mod7.summary())
-   # Fazer previsões
-v7 = mod7.predict(X7)
-print(v7)
-
-
 ## Variable 8 : CHEST_CIRC.BELOW_BUST_  
    # Selecionar variáveis 
-X8 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X8 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y8 = df['CHEST_CIRC.BELOW_BUST_']
 X8 = sm.add_constant(X8)
    # Ajustar o modelo de regressão linear múltipla
@@ -118,7 +105,7 @@ print(v8)
 
 ## Variable 10 : FOREARM_CIRC.FLEXED   
    # Selecionar variáveis 
-X10 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X10 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y10 = df['FOREARM_CIRC.FLEXED']
 X10 = sm.add_constant(X10)
    # Ajustar o modelo de regressão linear múltipla
@@ -131,7 +118,7 @@ print(v10)
 
 ## Variable 11 : FOREARM.HAND_LENTH  
    # Selecionar variáveis 
-X11 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X11 = df[['ELBOW_CIRC.EXTENDED']]
 y11 = df['FOREARM.HAND_LENTH']
 X11 = sm.add_constant(X11)
    # Ajustar o modelo de regressão linear múltipla
@@ -144,7 +131,7 @@ print(v11)
 
 ## Variable 12 : INTRSCY_DIST  
    # Selecionar variáveis 
-X12 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X12 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y12 = df['INTRSCY_DIST']
 X12 = sm.add_constant(X12)
    # Ajustar o modelo de regressão linear múltipla
@@ -157,7 +144,7 @@ print(v12)
 
 ## Variable 13 : INTRSCY_MID_DIST   
    # Selecionar variáveis 
-X13 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X13 = df[['CHEST_CIRC_AT_SCYE']]
 y13 = df['INTRSCY_MID_DIST']
 X13 = sm.add_constant(X13)
    # Ajustar o modelo de regressão linear múltipla
@@ -170,7 +157,7 @@ print(v13)
 
 ## Variable 14 : NECK_CIRC.BASE  
    # Selecionar variáveis 
-X14 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X14 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y14 = df['NECK_CIRC.BASE']
 X14 = sm.add_constant(X14)
    # Ajustar o modelo de regressão linear múltipla
@@ -181,22 +168,9 @@ v14 = mod14.predict(X14)
 print(v14)
 
 
-## Variable 15 : RADIALE.STYLION_LNTH   
-   # Selecionar variáveis 
-X15 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
-y15 = df['RADIALE.STYLION_LNTH']
-X15 = sm.add_constant(X15)
-   # Ajustar o modelo de regressão linear múltipla
-mod15 = sm.OLS(y15, X15).fit()
-print(mod15.summary())
-   # Fazer previsões
-v15 = mod15.predict(X15)
-print(v15)
-
-
 ## Variable 17 : SCYE_DEPTH  
    # Selecionar variáveis 
-X17 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X17 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y17 = df['SCYE_DEPTH']
 X17 = sm.add_constant(X17)
    # Ajustar o modelo de regressão linear múltipla
@@ -222,7 +196,7 @@ print(v18)
 
 ## Variable 19 : SPINE_TO_ELBOW_LNTH_.SL.  
    # Selecionar variáveis 
-X19 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION', 'WST_NAT_FRONT']]
+X19 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y19 = df['SPINE_TO_ELBOW_LNTH_.SL.']
 X19 = sm.add_constant(X19)
    # Ajustar o modelo de regressão linear múltipla
@@ -233,22 +207,9 @@ v19 = mod19.predict(X19)
 print(v19)
 
 
-## Variable 20 : SLEEVE.OUTSEAM_LNTH  
-   # Selecionar variáveis 
-X20 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
-y20 = df['SLEEVE.OUTSEAM_LNTH']
-X20 = sm.add_constant(X20)
-   # Ajustar o modelo de regressão linear múltipla
-mod20 = sm.OLS(y20, X20).fit()
-print(mod20.summary())
-   # Fazer previsões
-v20 = mod20.predict(X20)
-print(v20)
-
-
 ## Variable 21 : WAIST_NAT_LNTH  
    # Selecionar variáveis 
-X21 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION', 'WST_NAT_FRONT']]
+X21 = v17
 y21 = df['WAIST_NAT_LNTH']
 X21 = sm.add_constant(X21)
    # Ajustar o modelo de regressão linear múltipla
@@ -259,9 +220,10 @@ v21 = mod21.predict(X21)
 print(v21)
 
 
-## Variable 22 : WAIST_OMPH_LNTH  
+## Variable 22 : WAIST_OMPH_LNTH 
+d22 = pd.DataFrame({'v17': v17, 'v21': v21})  
    # Selecionar variáveis 
-X22 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
+X22 = d22[['v17', 'v21']]
 y22 = df['WAIST_OMPH_LNTH']
 X22 = sm.add_constant(X22)
    # Ajustar o modelo de regressão linear múltipla
@@ -272,9 +234,21 @@ v22 = mod22.predict(X22)
 print(v22)
 
 
+## Variable 23 : WST_NAT_FRONT
+X23 = v21
+y23 = df['WST_NAT_FRONT']
+X23 = sm.add_constant(X23)
+   # Ajustar o modelo de regressão linear múltipla
+mod23 = sm.OLS(y23, X23).fit()
+print(mod23.summary())
+   # Fazer previsões
+v23 = mod23.predict(X23)
+print(v23)
+
+
 ## Variable 24 : WST_OMP_FRONT  
    # Selecionar variáveis 
-X24 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION', 'WST_NAT_FRONT']]
+X24 = v22
 y24 = df['WST_OMP_FRONT']
 X24 = sm.add_constant(X24)
    # Ajustar o modelo de regressão linear múltipla
@@ -287,7 +261,7 @@ print(v24)
 
 ## Variable 25 : WRIST_CIRC.STYLION  
    # Selecionar variáveis 
-X25 = df[['ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION', 'WST_NAT_FRONT']]
+X25 = df[['CHEST_CIRC_AT_SCYE', 'ELBOW_CIRC.EXTENDED', 'SCYE_CIRC_OVER_ACROMION']]
 y25 = df['WRIST_CIRC.STYLION']
 X25 = sm.add_constant(X25)
    # Ajustar o modelo de regressão linear múltipla
@@ -298,9 +272,37 @@ v25 = mod25.predict(X25)
 print(v25)
 
 
+## Variable 15 : RADIALE.STYLION_LNTH  
+d15 = pd.DataFrame({'v1': v1, 'v11': v11, 'v18': v18, 'v19': v19, 'v25': v25})  
+   # Selecionar variáveis 
+X15 = d15[['v1', 'v11', 'v18', 'v19', 'v25']]
+y15 = df['RADIALE.STYLION_LNTH']
+X15 = sm.add_constant(X15)
+   # Ajustar o modelo de regressão linear múltipla
+mod15 = sm.OLS(y15, X15).fit()
+print(mod15.summary())
+   # Fazer previsões
+v15 = mod15.predict(X15)
+print(v15)
+
+
+## Variable 20 : SLEEVE.OUTSEAM_LNTH  
+d20 = pd.DataFrame({'v1': v1, 'v11': v11, 'v15': v15, 'v18': v18, 'v19': v19, 'v25': v25})  
+   # Selecionar variáveis 
+X20 = d20[['v1', 'v11', 'v15', 'v18', 'v19', 'v25']]
+y20 = df['SLEEVE.OUTSEAM_LNTH']
+X20 = sm.add_constant(X20)
+   # Ajustar o modelo de regressão linear múltipla
+mod20 = sm.OLS(y20, X20).fit()
+print(mod20.summary())
+   # Fazer previsões
+v20 = mod20.predict(X20)
+print(v20)
+
+
 
 ## Criar dataset
-data = {'V1': v1, 'V2': v2, 'V3': v3, 'V4': v4, 'V5': v5, 'V6': v6, 'V7': v7, 'V8': v8, 'V9': df['ELBOW_CIRC.EXTENDED'], 'V10': v10, 'V11': v11, 'V12': v12,'V13': v13,'V14': v14,'V15': v15,'V16': df['SCYE_CIRC_OVER_ACROMION'],'V17': v17,'V18': v18,'V19': v19,'V20': v20,'V21': v21,'V22': v22,'V23': df['WST_NAT_FRONT'],'V24': v24,'V25': v25}
-df1 = pd.DataFrame(data)
-print(df1)
-df1.to_csv('df1.csv', index=False)
+data = {'V1': v1, 'V2': v2, 'V3': v3, 'V4': v4, 'V5': v5, 'V6': v6, 'V7': df['CHEST_CIRC_AT_SCYE'], 'V8': v8, 'V9': df['ELBOW_CIRC.EXTENDED'], 'V10': v10, 'V11': v11, 'V12': v12,'V13': v13,'V14': v14,'V15': v15,'V16': df['SCYE_CIRC_OVER_ACROMION'],'V17': v17,'V18': v18,'V19': v19,'V20': v20,'V21': v21,'V22': v22,'V23': v23,'V24': v24,'V25': v25}
+df3dupla = pd.DataFrame(data)
+print(df3dupla)
+df3dupla.to_csv('df3dupla.csv', index=False)
