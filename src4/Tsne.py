@@ -3,11 +3,13 @@
    
 ## Packages necessários
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler
 from sklearn.manifold import TSNE
 from sklearn.cluster import KMeans
+import joblib
 
 
 ## Importação Dataset
@@ -24,7 +26,7 @@ dftsne = tsne.fit_transform(dfnor)
 ## Gráfico
 dftsne = pd.DataFrame(data=dftsne, columns=['TSNE1', 'TSNE2'])
 plt.figure(figsize=(10, 7))
-sns.scatterplot(x='TSNE1', y='TSNE2', data=dftsne, palette='Set1')
+sns.scatterplot(x='TSNE1', y='TSNE2', data=dftsne,  palette='Set1')
 plt.title('t-SNE - Componentes')
 plt.xlabel('TSNE1')
 plt.ylabel('TSNE2')
@@ -38,8 +40,10 @@ dfnor = scaler.fit_transform(dftsne)
 ## Aplicar kmeans
 kmeans = KMeans(n_clusters=4)
 kmeans.fit(dfnor)
+joblib.dump(kmeans, 'modtsne4.pkl')
 
 ## Previsão
+kmeans = joblib.load('modtsne4.pkl')
 labels = kmeans.predict(dfnor)
 print(labels)
 

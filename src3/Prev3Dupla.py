@@ -12,15 +12,15 @@ import joblib
 
 ## Recuperar modelo e importar dataframe
 kmeans = joblib.load('modkmeans3.pkl')
-df2 = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets3/df2.csv')
+df3dupla = pd.read_csv('/Users/patriciasilva/Desktop/Tese/FitForesight/Datasets3/df3dupla.csv')
 
 ## Normalizar dataset
 scaler = StandardScaler()
-df2nor = scaler.fit_transform(df2)
+df3duplanor = scaler.fit_transform(df3dupla)
 
 
 ## Previsão
-labels = kmeans.predict(df2nor)
+labels = kmeans.predict(df3duplanor)
 print(labels)
 np.set_printoptions(threshold=np.inf)
 print(labels)
@@ -28,7 +28,7 @@ cluster_counts = pd.Series(labels).value_counts()
 print(cluster_counts)
 
 ## Gráfico
-plt.scatter(df2nor[:, 0], df2nor[:, 1], c=labels, s=50, cmap='viridis')
+plt.scatter(df3duplanor[:, 0], df3duplanor[:, 1], c=labels, s=50, cmap='viridis')
 cent = kmeans.cluster_centers_
 plt.scatter(cent[:, 0], cent[:, 1], c='red', s=200, alpha=0.75, marker='X')
 plt.show()
